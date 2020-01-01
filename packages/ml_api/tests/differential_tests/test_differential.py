@@ -8,9 +8,9 @@ import pytest
 
 
 from api import config
+_logger = logging.getLogger(__name__)
 
 
-@pytest.mark.skip
 @pytest.mark.differential
 def test_model_prediction_differential(
         *,
@@ -23,7 +23,12 @@ def test_model_prediction_differential(
     # Given
     # Load the saved previous model predictions
     previous_model_df = pd.read_csv(f'{config.PACKAGE_ROOT}/{save_file}')
+    _logger.info(f'previous_model_df ')
+    _logger.info(f'{config.PACKAGE_ROOT}/{save_file}')
+    _logger.info(f'{model_config.TESTING_DATA_FILE}')
+
     previous_model_predictions = previous_model_df.predictions.values
+    # test_data = load_dataset(file_name=model_config.TESTING_DATA_FILE)
 
     test_data = load_dataset(file_name=f'{save_file}')
     multiple_test_input = test_data[99:600]
