@@ -13,6 +13,7 @@ import typing as t
 _logger = logging.getLogger(__name__)
 
 pipeline_file_name = f'{config.PIPELINE_SAVE_FILE}{_version}.pkl'
+_logger.info(f'Pipeline filename: {pipeline_file_name}')
 _price_pipe = load_pipeline(file_name=pipeline_file_name)
 
 
