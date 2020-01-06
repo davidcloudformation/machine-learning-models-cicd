@@ -1,4 +1,4 @@
-NAME=udemy-ml-soledad-2
+NAME=udemy-soledad-ml
 COMMIT_ID=$(shell git rev-parse HEAD)
 
 
